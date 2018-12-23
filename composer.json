@@ -1,0 +1,49 @@
+{
+    "name": "weslal/novasettingstool",
+    "description": "A Laravel Nova Tool to let users manage global settings created from code.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "settings",
+        "global",
+        "configuration",
+        "config",
+        "setting",
+        "preference",
+        "preferences",
+        "manage"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "authors": [
+        {
+            "name": "WesLal",
+            "email": "weslal@protonmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "helpers.php"
+        ],
+        "psr-4": {
+            "WesLal\\NovaSettingsTool\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WesLal\\NovaSettingsTool\\ToolServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-working": "1.0.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "prefer-stable": true
+}
