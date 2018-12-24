@@ -11,7 +11,7 @@
 
 A Laravel Nova Tool to let users manage global settings created from code. This package works only in combination with Laravel Nova.
 
-![NovaSettingsTool](./screenshots/screenshot_3.png?raw=true "NovaSettingsTool")
+![NovaSettingsTool](./screenshots/screenshot_2.png?raw=true "NovaSettingsTool")
 
 ## Table of Contents
 * **[Installation](#installation)**
