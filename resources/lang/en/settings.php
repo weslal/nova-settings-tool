@@ -18,7 +18,7 @@ return [
     ## The caption of the save button on the tool page. ##
     'save_settings' => 'Save Settings',
 
-    ## The suffix of the tabs (groups) on the tool page (first space is included automatically) ##
+    ## The suffix of the tabs (groups) on the tool page (first space is included automatically). ##
     'setting_tab_suffix' => 'Settings',
 
     ## The toaster message when saving the settings succeeded. ##

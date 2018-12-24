@@ -10,7 +10,7 @@ use Laravel\Nova\Tool;
  * Class Settings
  * @package WesLal\NovaSettingsTool
  */
-class Settings extends Tool
+class NovaSettingsTool extends Tool
 {
     /**
      * Perform any tasks that need to happen when the tool is booted.
