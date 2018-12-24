@@ -3,7 +3,7 @@
 namespace WesLal\NovaSettingsTool\Http\Middleware;
 
 use Illuminate\Http\JsonResponse;
-use WesLal\NovaSettingsTool\Settings;
+use WesLal\NovaSettingsTool\NovaSettingsTool;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Closure;
@@ -23,6 +23,6 @@ final class Authorize
      */
     public function handle(Request $request, Closure $next)
     {
-        return resolve(Settings::class)->authorize($request) ? $next($request) : abort(403);
+        return resolve(NovaSettingsTool::class)->authorize($request) ? $next($request) : abort(403);
     }
 }
