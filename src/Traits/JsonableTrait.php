@@ -2,6 +2,8 @@
 
 namespace WesLal\NovaSettingsTool\Traits;
 
+use Illuminate\Support\Str;
+
 /**
  * Trait JsonableTrait
  * @package WesLal\NovaSettingsTool\Traits
@@ -19,7 +21,7 @@ trait JsonableTrait
     {
         $jsonables = [];
         foreach ($this->getJsonables() as $jsonable) {
-            $jsonables[$jsonable] = $this->{'get' . camel_case($jsonable)}();
+            $jsonables[$jsonable] = $this->{'get' . Str::camel($jsonable)}();
         }
         return $jsonables;
     }
