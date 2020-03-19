@@ -240,9 +240,11 @@ final class SettingItem implements Serializable, JsonSerializable
         $keyNotValid = is_null($this->key) || empty($this->key) || !is_string($this->key);
         $valueNotValid = is_null($this->value) || empty($this->value);
         if (!$keyNotValid || !$valueNotValid || !$forceFromDatabase) {
-            $collection = SettingValue::findByKey($this->getKey());
-            if ($collection->count() > 0) {
-                $this->value = $collection->first()->value;
+            if ($this->getKey()) {
+                $collection = SettingValue::findByKey($this->getKey());
+                if ($collection->count() > 0) {
+                    $this->value = $collection->first()->value;
+                }
             }
         }
 
