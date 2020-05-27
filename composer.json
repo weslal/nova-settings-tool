@@ -1,5 +1,5 @@
 {
-    "name": "weslal/nova-settings-tool",
+    "name": "pkaratanev/nova-settings-tool",
     "description": "A Laravel Nova Tool to let users manage global settings created from code.",
     "keywords": [
         "laravel",
