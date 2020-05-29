@@ -7,6 +7,7 @@ use Serializable;
 use JsonSerializable;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
+use WesLal\NovaSettingsTool\Events\SettingsUpdated;
 use WesLal\NovaSettingsTool\Events\SettingsRegistering;
 use WesLal\NovaSettingsTool\Traits\CacheableTrait;
 use WesLal\NovaSettingsTool\Traits\CallableTrait;
@@ -36,7 +37,7 @@ final class SettingRegister implements Serializable, JsonSerializable
      * @var array
      */
     protected $cacheables = [
-        'groups'
+        'groups',
     ];
 
     /**
@@ -44,7 +45,7 @@ final class SettingRegister implements Serializable, JsonSerializable
      * @var array
      */
     protected $jsonables = [
-        'groups'
+        'groups',
     ];
 
     /**
@@ -53,8 +54,8 @@ final class SettingRegister implements Serializable, JsonSerializable
      */
     public function __construct(Container $container)
     {
-        $this->container    = $container;
-        $this->groups       = new Collection();
+        $this->container = $container;
+        $this->groups = new Collection();
         event(new SettingsRegistering($this));
     }
 
@@ -64,8 +65,7 @@ final class SettingRegister implements Serializable, JsonSerializable
      */
     public function getGroups(): Collection
     {
-        return $this->groups->sortByDesc(function (SettingGroup $group)
-        {
+        return $this->groups->sortByDesc(function (SettingGroup $group) {
             return $group->getPriority();
         });
     }
@@ -82,6 +82,7 @@ final class SettingRegister implements Serializable, JsonSerializable
         } else {
             $group = $this->container->make(SettingGroup::class);
             $group->key($key);
+
             return $group;
         }
     }
@@ -94,6 +95,7 @@ final class SettingRegister implements Serializable, JsonSerializable
     public function addGroup(SettingGroup $group): SettingRegister
     {
         $this->groups->put($group->getKey(), $group);
+
         return $this;
     }
 
@@ -107,6 +109,7 @@ final class SettingRegister implements Serializable, JsonSerializable
         if ($this->groups->has($key)) {
             $this->groups->forget($key);
         }
+
         return $this;
     }
 
@@ -156,7 +159,7 @@ final class SettingRegister implements Serializable, JsonSerializable
     {
         foreach ($this->groups as $group) {
             foreach ($group->getItems() as $item) {
-                foreach($keyValueArray as $key => $value) {
+                foreach ($keyValueArray as $key => $value) {
                     if ($key === $item->getKey()) {
                         $item->value($value ?? '', $saveInBetween);
                     }
@@ -166,6 +169,7 @@ final class SettingRegister implements Serializable, JsonSerializable
 
         if (!$saveInBetween) {
             $this->saveAllChangedValues();
+            event(new SettingsUpdated($keyValueArray));
         }
 
         return $this;
@@ -189,6 +193,7 @@ final class SettingRegister implements Serializable, JsonSerializable
     public static function getInstance(): SettingRegister
     {
         self::init();
+
         return app()['settings'];
     }
 
@@ -207,8 +212,8 @@ final class SettingRegister implements Serializable, JsonSerializable
 
     /**
      * Get the SettingItem instance by key from the app container.
-     * @var string $key
      * @return mixed|null|SettingItem
+     * @var string $key
      */
     public static function getSettingItem(string $key)
     {
