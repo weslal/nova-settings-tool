@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/get', 'WesLal\NovaSettingsTool\Http\Controllers\SettingsController@get');
-Route::get('/installed', 'WesLal\NovaSettingsTool\Http\Controllers\SettingsController@installed');
-Route::put('/update', 'WesLal\NovaSettingsTool\Http\Controllers\SettingsController@process');
+Route::get('/get', 'Pkaratanev\NovaSettingsTool\Http\Controllers\SettingsController@get');
+Route::get('/installed', 'Pkaratanev\NovaSettingsTool\Http\Controllers\SettingsController@installed');
+Route::put('/update', 'Pkaratanev\NovaSettingsTool\Http\Controllers\SettingsController@process');

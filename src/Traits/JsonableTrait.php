@@ -1,12 +1,12 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Traits;
+namespace Pkaratanev\NovaSettingsTool\Traits;
 
 use Illuminate\Support\Str;
 
 /**
  * Trait JsonableTrait
- * @package WesLal\NovaSettingsTool\Traits
+ * @package Pkaratanev\NovaSettingsTool\Traits
  */
 trait JsonableTrait
 {

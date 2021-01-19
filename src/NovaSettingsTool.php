@@ -1,6 +1,6 @@
 <?php
 
-namespace WesLal\NovaSettingsTool;
+namespace Pkaratanev\NovaSettingsTool;
 
 use Illuminate\View\View;
 use Laravel\Nova\Nova;
@@ -8,7 +8,7 @@ use Laravel\Nova\Tool;
 
 /**
  * Class Settings
- * @package WesLal\NovaSettingsTool
+ * @package Pkaratanev\NovaSettingsTool
  */
 class NovaSettingsTool extends Tool
 {

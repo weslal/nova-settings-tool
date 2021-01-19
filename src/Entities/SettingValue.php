@@ -1,13 +1,13 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Entities;
+namespace Pkaratanev\NovaSettingsTool\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 /**
  * Class SettingValue
- * @package WesLal\NovaSettingsTool\Entities
+ * @package Pkaratanev\NovaSettingsTool\Entities
  */
 final class SettingValue extends Model
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Http\Middleware;
+namespace Pkaratanev\NovaSettingsTool\Http\Middleware;
 
 use Illuminate\Http\JsonResponse;
-use WesLal\NovaSettingsTool\NovaSettingsTool;
+use Pkaratanev\NovaSettingsTool\NovaSettingsTool;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Closure;
 
 /**
  * Class Authorize
- * @package WesLal\NovaSettingsTool\Http\Middleware
+ * @package Pkaratanev\NovaSettingsTool\Http\Middleware
  */
 final class Authorize
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Enums;
+namespace Pkaratanev\NovaSettingsTool\Enums;
 
 use ReflectionClass;
 use ReflectionException;
 
 /**
  * Class BaseEnum
- * @package WesLal\NovaSettingsTool\Enums
+ * @package Pkaratanev\NovaSettingsTool\Enums
  */
 abstract class BaseEnum {
     /**

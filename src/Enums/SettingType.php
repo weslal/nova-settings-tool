@@ -1,10 +1,10 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Enums;
+namespace Pkaratanev\NovaSettingsTool\Enums;
 
 /**
  * Class SettingType
- * @package WesLal\NovaSettingsTool\Enums
+ * @package Pkaratanev\NovaSettingsTool\Enums
  */
 abstract class SettingType extends BaseEnum
 {

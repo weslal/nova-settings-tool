@@ -29,13 +29,13 @@
             "helpers.php"
         ],
         "psr-4": {
-            "WesLal\\NovaSettingsTool\\": "src/"
+            "Pkaratanev\\NovaSettingsTool\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "WesLal\\NovaSettingsTool\\ToolServiceProvider"
+                "Pkaratanev\\NovaSettingsTool\\ToolServiceProvider"
             ]
         },
         "branch-alias": {

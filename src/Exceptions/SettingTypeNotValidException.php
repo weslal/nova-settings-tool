@@ -1,12 +1,12 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Exceptions;
+namespace Pkaratanev\NovaSettingsTool\Exceptions;
 
 use Exception;
 
 /**
  * Class SettingTypeNotValidException
- * @package WesLal\NovaSettingsTool\Exceptions
+ * @package Pkaratanev\NovaSettingsTool\Exceptions
  */
 final class SettingTypeNotValidException extends Exception
 {
