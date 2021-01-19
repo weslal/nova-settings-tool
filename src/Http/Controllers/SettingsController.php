@@ -51,7 +51,7 @@ final class SettingsController
 
         return response()->json([
             'settings' => $settingRegister,
-            'message' => __('settings::settings.save_success')
+            'message' => __('settings::settings.save_success'),
         ]);
     }
 }

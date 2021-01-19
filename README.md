@@ -126,6 +126,44 @@ protected $listen = [
 
 ```
 
+### Create Updated Values Listener
+Create a listener class where you can watch for updated values and do something if they changed 
+```php
+use WesLal\NovaSettingsTool\Events\SettingsUpdated;
+
+// ...
+
+class SettingsRegisteringListener
+{
+    // ...
+    public function handle(SettingsUpdated $event)
+    {
+        // ...
+    }
+    // ...
+}
+
+```
+
+
+### Register Updated Listener
+```php
+use WesLal\NovaSettingsTool\Events\SettingsUpdated;
+use App\Handlers\SettingsUpdatedListener;
+
+// ...
+
+protected $listen = [
+    // ...
+    SettingsUpdated::class => [
+        SettingsUpdatedListener::class
+    ]
+    // ...
+];
+
+```
+
+
 
 ### Define Settings
 Define the settings in the `handle()` method in the listener, or in that method in another listener that listens to the `SettingsRegistering` event. Shown below is an example of how to define settings:
