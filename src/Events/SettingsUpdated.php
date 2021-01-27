@@ -1,12 +1,12 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Events;
+namespace Pkaratanev\NovaSettingsTool\Events;
 
 use Illuminate\Queue\SerializesModels;
 
 /**
  * Class SettingsRegistering
- * @package WesLal\NovaSettingsTool\Events
+ * @package Pkaratanev\NovaSettingsTool\Events
  */
 final class SettingsUpdated
 {
