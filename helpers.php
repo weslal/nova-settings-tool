@@ -1,7 +1,7 @@
 <?php
 if (!function_exists('settings')) {
     function settings() {
-        \Pkaratanev\NovaSettingsTool\ValueObjects\SettingRegister::getInstance();
+        return \Pkaratanev\NovaSettingsTool\ValueObjects\SettingRegister::getInstance();
     }
 }
 

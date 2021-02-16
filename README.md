@@ -127,9 +127,9 @@ protected $listen = [
 ```
 
 ### Create Updated Values Listener
-Create a listener class where you can watch for updated values and do something if they changed 
+Create a listener class where you can watch for updated values and do something if they changed
 ```php
-use WesLal\NovaSettingsTool\Events\SettingsUpdated;
+use Pkaratanev\NovaSettingsTool\Events\SettingsUpdated;
 
 // ...
 
@@ -148,7 +148,7 @@ class SettingsRegisteringListener
 
 ### Register Updated Listener
 ```php
-use WesLal\NovaSettingsTool\Events\SettingsUpdated;
+use Pkaratanev\NovaSettingsTool\Events\SettingsUpdated;
 use App\Handlers\SettingsUpdatedListener;
 
 // ...
