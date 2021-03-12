@@ -12,11 +12,11 @@ if (!function_exists('setting')) {
 }
 
 if (!function_exists('settingValue')) {
-    function settingValue(string $key) {
+    function settingValue(string $key, $default = null) {
         $settingValue = \Pkaratanev\NovaSettingsTool\Entities\SettingValue::findByKey($key);
         if ($settingValue->count() > 0) {
             return $settingValue->first()->value;
         }
-        return null;
+        return $default;
     }
 }
