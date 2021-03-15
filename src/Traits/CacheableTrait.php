@@ -1,10 +1,10 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Traits;
+namespace Pkaratanev\NovaSettingsTool\Traits;
 
 /**
  * Trait CacheableTrait
- * @package WesLal\NovaSettingsTool\Traits
+ * @package Pkaratanev\NovaSettingsTool\Traits
  */
 trait CacheableTrait
 {

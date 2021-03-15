@@ -1,22 +1,22 @@
 <?php
 if (!function_exists('settings')) {
     function settings() {
-        \WesLal\NovaSettingsTool\ValueObjects\SettingRegister::getInstance();
+        return \Pkaratanev\NovaSettingsTool\ValueObjects\SettingRegister::getInstance();
     }
 }
 
 if (!function_exists('setting')) {
     function setting(string $key) {
-        return \WesLal\NovaSettingsTool\ValueObjects\SettingRegister::getSettingItem($key);
+        return \Pkaratanev\NovaSettingsTool\ValueObjects\SettingRegister::getSettingItem($key);
     }
 }
 
 if (!function_exists('settingValue')) {
-    function settingValue(string $key) {
-        $settingValue = \WesLal\NovaSettingsTool\Entities\SettingValue::findByKey($key);
+    function settingValue(string $key, $default = null) {
+        $settingValue = \Pkaratanev\NovaSettingsTool\Entities\SettingValue::findByKey($key);
         if ($settingValue->count() > 0) {
             return $settingValue->first()->value;
         }
-        return null;
+        return $default;
     }
 }

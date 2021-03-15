@@ -1,6 +1,6 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\ValueObjects;
+namespace Pkaratanev\NovaSettingsTool\ValueObjects;
 
 use Illuminate\Http\Resources\MergeValue;
 use Serializable;
@@ -8,13 +8,13 @@ use Closure;
 use JsonSerializable;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
-use WesLal\NovaSettingsTool\Traits\CacheableTrait;
-use WesLal\NovaSettingsTool\Traits\CallableTrait;
-use WesLal\NovaSettingsTool\Traits\JsonableTrait;
+use Pkaratanev\NovaSettingsTool\Traits\CacheableTrait;
+use Pkaratanev\NovaSettingsTool\Traits\CallableTrait;
+use Pkaratanev\NovaSettingsTool\Traits\JsonableTrait;
 
 /**
  * Class SettingGroup
- * @package WesLal\NovaSettingsTool\ValueObjects
+ * @package Pkaratanev\NovaSettingsTool\ValueObjects
  */
 final class SettingGroup implements Serializable, JsonSerializable
 {

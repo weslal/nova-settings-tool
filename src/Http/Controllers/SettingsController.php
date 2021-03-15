@@ -1,16 +1,16 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Http\Controllers;
+namespace Pkaratanev\NovaSettingsTool\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
-use WesLal\NovaSettingsTool\Traits\Settings;
-use WesLal\NovaSettingsTool\ValueObjects\SettingRegister;
+use Pkaratanev\NovaSettingsTool\Traits\Settings;
+use Pkaratanev\NovaSettingsTool\ValueObjects\SettingRegister;
 use Illuminate\Http\JsonResponse;
 
 /**
  * Class SettingsController
- * @package WesLal\NovaSettingsTool\Http\Controllers
+ * @package Pkaratanev\NovaSettingsTool\Http\Controllers
  */
 final class SettingsController
 {
@@ -51,7 +51,7 @@ final class SettingsController
 
         return response()->json([
             'settings' => $settingRegister,
-            'message' => __('settings::settings.save_success')
+            'message' => __('settings::settings.save_success'),
         ]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\Traits;
+namespace Pkaratanev\NovaSettingsTool\Traits;
 
 use Closure;
 use Illuminate\Routing\RouteDependencyResolverTrait;
@@ -9,7 +9,7 @@ use ReflectionException;
 
 /**
  * Trait CallableTrait
- * @package WesLal\NovaSettingsTool\Traits
+ * @package Pkaratanev\NovaSettingsTool\Traits
  */
 trait CallableTrait
 {

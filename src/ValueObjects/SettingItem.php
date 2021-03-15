@@ -1,6 +1,6 @@
 <?php
 
-namespace WesLal\NovaSettingsTool\ValueObjects;
+namespace Pkaratanev\NovaSettingsTool\ValueObjects;
 
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
@@ -14,16 +14,16 @@ use Laravel\Nova\Fields\Textarea;
 use Serializable;
 use JsonSerializable;
 use Illuminate\Contracts\Container\Container;
-use WesLal\NovaSettingsTool\Entities\SettingValue;
-use WesLal\NovaSettingsTool\Enums\SettingType;
-use WesLal\NovaSettingsTool\Exceptions\SettingTypeNotValidException;
-use WesLal\NovaSettingsTool\Traits\CacheableTrait;
-use WesLal\NovaSettingsTool\Traits\CallableTrait;
-use WesLal\NovaSettingsTool\Traits\JsonableTrait;
+use Pkaratanev\NovaSettingsTool\Entities\SettingValue;
+use Pkaratanev\NovaSettingsTool\Enums\SettingType;
+use Pkaratanev\NovaSettingsTool\Exceptions\SettingTypeNotValidException;
+use Pkaratanev\NovaSettingsTool\Traits\CacheableTrait;
+use Pkaratanev\NovaSettingsTool\Traits\CallableTrait;
+use Pkaratanev\NovaSettingsTool\Traits\JsonableTrait;
 
 /**
  * Class SettingItem
- * @package WesLal\NovaSettingsTool\ValueObjects
+ * @package Pkaratanev\NovaSettingsTool\ValueObjects
  */
 final class SettingItem implements Serializable, JsonSerializable
 {
@@ -240,9 +240,11 @@ final class SettingItem implements Serializable, JsonSerializable
         $keyNotValid = is_null($this->key) || empty($this->key) || !is_string($this->key);
         $valueNotValid = is_null($this->value) || empty($this->value);
         if (!$keyNotValid || !$valueNotValid || !$forceFromDatabase) {
-            $collection = SettingValue::findByKey($this->getKey());
-            if ($collection->count() > 0) {
-                $this->value = $collection->first()->value;
+            if ($this->getKey()) {
+                $collection = SettingValue::findByKey($this->getKey());
+                if ($collection->count() > 0) {
+                    $this->value = $collection->first()->value;
+                }
             }
         }
 

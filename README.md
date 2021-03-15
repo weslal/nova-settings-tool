@@ -1,13 +1,13 @@
 # NovaSettingsTool
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/weslal/nova-settings-tool.svg?style=flat-square)](https://packagist.org/packages/weslal/nova-settings-tool)
-[![Latest Stable Version](https://poser.pugx.org/weslal/nova-settings-tool/v/stable?style=flat-square)](https://packagist.org/packages/weslal/nova-settings-tool)
-[![Latest Unstable Version](https://poser.pugx.org/weslal/nova-settings-tool/v/unstable?style=flat-square)](https://packagist.org/packages/weslal/nova-settings-tool)
-[![Total Downloads](https://img.shields.io/packagist/dt/weslal/nova-settings-tool.svg?style=flat-square)](https://packagist.org/packages/weslal/nova-settings-tool)
-[![License](https://poser.pugx.org/weslal/nova-settings-tool/license?style=flat-square?style=flat-square)](https://packagist.org/packages/weslal/nova-settings-tool)
-[![Monthly Downloads](https://poser.pugx.org/weslal/nova-settings-tool/d/monthly?style=flat-square)](https://packagist.org/packages/weslal/nova-settings-tool)
-[![Daily Downloads](https://poser.pugx.org/weslal/nova-settings-tool/d/daily?style=flat-square)](https://packagist.org/packages/weslal/nova-settings-tool)
-[![composer.lock](https://poser.pugx.org/weslal/nova-settings-tool/composerlock?style=flat-square)](https://packagist.org/packages/weslal/nova-settings-tool)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/Pkaratanev/nova-settings-tool.svg?style=flat-square)](https://packagist.org/packages/Pkaratanev/nova-settings-tool)
+[![Latest Stable Version](https://poser.pugx.org/Pkaratanev/nova-settings-tool/v/stable?style=flat-square)](https://packagist.org/packages/Pkaratanev/nova-settings-tool)
+[![Latest Unstable Version](https://poser.pugx.org/Pkaratanev/nova-settings-tool/v/unstable?style=flat-square)](https://packagist.org/packages/Pkaratanev/nova-settings-tool)
+[![Total Downloads](https://img.shields.io/packagist/dt/Pkaratanev/nova-settings-tool.svg?style=flat-square)](https://packagist.org/packages/Pkaratanev/nova-settings-tool)
+[![License](https://poser.pugx.org/Pkaratanev/nova-settings-tool/license?style=flat-square?style=flat-square)](https://packagist.org/packages/Pkaratanev/nova-settings-tool)
+[![Monthly Downloads](https://poser.pugx.org/Pkaratanev/nova-settings-tool/d/monthly?style=flat-square)](https://packagist.org/packages/Pkaratanev/nova-settings-tool)
+[![Daily Downloads](https://poser.pugx.org/Pkaratanev/nova-settings-tool/d/daily?style=flat-square)](https://packagist.org/packages/Pkaratanev/nova-settings-tool)
+[![composer.lock](https://poser.pugx.org/Pkaratanev/nova-settings-tool/composerlock?style=flat-square)](https://packagist.org/packages/Pkaratanev/nova-settings-tool)
 
 A Laravel Nova Tool to let users manage global settings created from code. This package works only in combination with Laravel Nova.
 
@@ -45,7 +45,7 @@ Install `NovaSettingsTool` by following the steps below.
 Install this package through composer using the following command:
 
 ```bash
-composer require weslal/nova-settings-tool
+composer require Pkaratanev/nova-settings-tool
 ```
 
 
@@ -69,7 +69,7 @@ php artisan vendor:publish --tag="settings"
 ### Register Tool
 Register the tool with Nova. Add the tool to the `tools()` method of the `App\NovaServiceProvider`, as shown below:
 ```php
-use WesLal\NovaSettingsTool\NovaSettingsTool;
+use Pkaratanev\NovaSettingsTool\NovaSettingsTool;
 
 // ...
 
@@ -88,10 +88,10 @@ public function tools()
 ### Create Listener
 Create a listener class where the settings tool will request for groups and items. A listener class can be placed in for example *App/Handlers* and can be named for example _SettingsRegisteringListener.php_. The `handle()` method is used to define the setting groups and setting items, it can be used as shown below:
 ```php
-use WesLal\NovaSettingsTool\Enums\SettingType;
-use WesLal\NovaSettingsTool\Events\SettingsRegistering;
-use WesLal\NovaSettingsTool\ValueObjects\SettingGroup;
-use WesLal\NovaSettingsTool\ValueObjects\SettingItem;
+use Pkaratanev\NovaSettingsTool\Enums\SettingType;
+use Pkaratanev\NovaSettingsTool\Events\SettingsRegistering;
+use Pkaratanev\NovaSettingsTool\ValueObjects\SettingGroup;
+use Pkaratanev\NovaSettingsTool\ValueObjects\SettingItem;
 
 // ...
 
@@ -111,7 +111,7 @@ class SettingsRegisteringListener
 ### Register Listener
 Register the listener with Nova. Add the `SettingsRegistering` event containing the listener class(es) to the `$listen` array of the `App\EventServiceProvider`, as shown below:
 ```php
-use WesLal\NovaSettingsTool\Events\SettingsRegistering;
+use Pkaratanev\NovaSettingsTool\Events\SettingsRegistering;
 use App\Handlers\SettingsRegisteringListener;
 
 // ...
@@ -125,6 +125,44 @@ protected $listen = [
 ];
 
 ```
+
+### Create Updated Values Listener
+Create a listener class where you can watch for updated values and do something if they changed
+```php
+use Pkaratanev\NovaSettingsTool\Events\SettingsUpdated;
+
+// ...
+
+class SettingsRegisteringListener
+{
+    // ...
+    public function handle(SettingsUpdated $event)
+    {
+        // ...
+    }
+    // ...
+}
+
+```
+
+
+### Register Updated Listener
+```php
+use Pkaratanev\NovaSettingsTool\Events\SettingsUpdated;
+use App\Handlers\SettingsUpdatedListener;
+
+// ...
+
+protected $listen = [
+    // ...
+    SettingsUpdated::class => [
+        SettingsUpdatedListener::class
+    ]
+    // ...
+];
+
+```
+
 
 
 ### Define Settings
@@ -411,14 +449,14 @@ Get the value of a `SettingItem` instance from the the SettingRegister in the Ap
 ## Tested Fields
 | Field Class | Passed Test | Not Supported (Yet) | Not Tested Yet |
 | --- | --- | --- | --- |
-| `\Laravel\Nova\Fields\Text` | x |  | 
-| `\Laravel\Nova\Fields\Boolean` | x |  | 
-| `\Laravel\Nova\Fields\Number` | x |  | 
-| `\Laravel\Nova\Fields\TextArea` | x |  | 
-| `\Laravel\Nova\Fields\Date` | x |  | 
-| `\Laravel\Nova\Fields\DateTime` | x |  | 
-| `\Laravel\Nova\Fields\Code` | x |  | 
-| `\Laravel\Nova\Fields\Password` | x |  | 
+| `\Laravel\Nova\Fields\Text` | x |  |
+| `\Laravel\Nova\Fields\Boolean` | x |  |
+| `\Laravel\Nova\Fields\Number` | x |  |
+| `\Laravel\Nova\Fields\TextArea` | x |  |
+| `\Laravel\Nova\Fields\Date` | x |  |
+| `\Laravel\Nova\Fields\DateTime` | x |  |
+| `\Laravel\Nova\Fields\Code` | x |  |
+| `\Laravel\Nova\Fields\Password` | x |  |
 | `\Laravel\Nova\Fields\Avatar` |  |  | x |
 | `\Laravel\Nova\Fields\Country` |  |  | x |
 | `\Laravel\Nova\Fields\Currency` |  |  | x |

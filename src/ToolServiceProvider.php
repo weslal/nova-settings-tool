@@ -1,17 +1,17 @@
 <?php
 
-namespace WesLal\NovaSettingsTool;
+namespace Pkaratanev\NovaSettingsTool;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use WesLal\NovaSettingsTool\Http\Middleware\Authorize;
-use WesLal\NovaSettingsTool\ValueObjects\SettingRegister;
+use Pkaratanev\NovaSettingsTool\Http\Middleware\Authorize;
+use Pkaratanev\NovaSettingsTool\ValueObjects\SettingRegister;
 
 /**
  * Class ToolServiceProvider
- * @package WesLal\NovaSettingsTool
+ * @package Pkaratanev\NovaSettingsTool
  */
 class ToolServiceProvider extends ServiceProvider
 {
